@@ -11,9 +11,9 @@ fsPromises.readdir(secretFolder, {withFileTypes: true}).then(results => {
             const secretName = path.basename(secretPath, path.extname(secretPath));
             const secretType = path.extname(secretPath);
             fsPromises
-            .stat(secretPath)
-            .then(result => {
-                console.log(`${secretName} - ${secretType} - ${result.size}`);
+              .stat(secretPath)
+              .then(result => {
+                 console.log(`${secretName} - ${secretType} - ${result.size}`);
             });
         }
     });
