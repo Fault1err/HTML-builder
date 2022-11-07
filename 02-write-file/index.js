@@ -11,7 +11,7 @@ function exitApp() {
     exit();
 };
 
-fs.writeFile(fileCreate, 'Please write something!', err => {
+fs.writeFile(fileCreate, 'Please write something here!', err => {
     if (err) {
         throw error;
     }
