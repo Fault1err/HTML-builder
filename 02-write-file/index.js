@@ -11,12 +11,12 @@ function exitApp() {
     exit();
 };
 
-fs.writeFile(fileCreate, 'Напишите что-нибудь', err => {
+fs.writeFile(fileCreate, 'Please write something!', err => {
     if (err) {
         throw error;
     }
 
-    console.log('Напишите что-нибудь');
+    console.log('Please write something!');
 });
 
 stdin.on('data', data => {
