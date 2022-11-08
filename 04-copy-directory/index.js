@@ -18,10 +18,10 @@ function toCopyFolder() {
 };
 
 fs.mkdir(newFolder, {recursive: true}, err => {
-    fs.readdir(newFolder, (err, files) => {
+    fs.readdir(newFolder, (err, items) => {
         if (err) throw err;
-        for (file of files) {
-            fs.unlink(path.join(newFolder, file), err => {
+        for (item of items) {
+            fs.unlink(path.join(newFolder, item), err => {
                 if (err) throw err;
             });
         }
