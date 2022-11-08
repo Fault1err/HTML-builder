@@ -13,7 +13,6 @@ function toCopyFolder() {
         fs.copyFile(copiedFile, newFile, function(err) {
             if (err) throw err;
         });
-        // console.log(item.name); 
     });
 })
 };
