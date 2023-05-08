@@ -9,11 +9,11 @@ fsPromises.readdir(secretFolder, {withFileTypes: true}).then(results => {
     if (result.isFile()) {
       const secretPath = path.join(__dirname, 'secret-folder', result.name);
       const secretName = path.basename(secretPath, path.extname(secretPath));
-      const secretType = path.extname(secretPath);
+      const secretType = path.extname(secretPath).slice(1);
       fsPromises
         .stat(secretPath)
         .then(result => {
-          console.log(`${secretName} - ${secretType} - ${result.size}`);
+          console.log(`${secretName} - ${secretType} - ${result.size}b`);
         });
     }
   });
