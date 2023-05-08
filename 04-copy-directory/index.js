@@ -5,7 +5,7 @@ const fs = require('fs');
 const newFolder = path.join(__dirname, 'files-copy');
 const copiedFolder = path.join(__dirname, 'files');
 
-function toCopyFolder() {
+function copyDir() {
   fs.readdir(copiedFolder, {withFileTypes: true}, (err, items) => {
     items.forEach(item => {
       const newFile = path.join(newFolder, item.name);
@@ -27,7 +27,7 @@ fs.mkdir(newFolder, {recursive: true}, error => {
       });
     }
   });
-  toCopyFolder();
+  copyDir();
   console.log('Copied folder is created!');
 });
 
