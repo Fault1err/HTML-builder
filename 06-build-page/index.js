@@ -129,30 +129,22 @@ function createFromTemplate() {
 
   fs.readFile(indexHtml, {encoding: 'utf-8'}, (err, data) => {
     if (err) throw err;
-    //   console.log(data.toString());
-
     fs.readdir(componentsFolder, (err, items) => {
       if (err) throw err;
       items.forEach(item => {
         let res = item.split('.')[0];
-        // console.log(res)
-        //   if (path.extname(item) == '.css') {
-            
         fs.readFile(path.join(componentsFolder, item), {encoding: 'utf-8'}, (err, t) => {
           if (err) throw err;
-          // console.log(data.replace(`{{${res}}}`, t))
           data = data.replace(`{{${res}}}`, t);
           fs.writeFile(indexHtml, data, err => {
             if (err) throw err;
           });
-        //   if (err) throw err;
         });
       });
     });
     if (err) throw err;
   });
 }
-
 
 fs.writeFile(path.join(newFolder, 'index.html'), '', (err) => {
   if (err) throw err;
